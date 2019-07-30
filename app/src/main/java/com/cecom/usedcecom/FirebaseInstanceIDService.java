@@ -2,7 +2,9 @@ package com.cecom.usedcecom;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.graphics.BitmapFactory;
@@ -44,6 +46,14 @@ public class FirebaseInstanceIDService extends FirebaseMessagingService {
     private void sendNotification(RemoteMessage remoteMessage) {
         String seller = remoteMessage.getData().get("seller");
         String item = remoteMessage.getData().get("item");
+        String number = remoteMessage.getData().get("number");
+
+        Intent intent = new Intent(this, BuyerInfoActivity.class);
+        intent.putExtra("seller", seller);
+        intent.putExtra("item", item);
+        intent.putExtra("number", number);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
@@ -60,6 +70,7 @@ public class FirebaseInstanceIDService extends FirebaseMessagingService {
                 .setOngoing(false)
                 .setPriority(NotificationCompat.PRIORITY_MIN)
                 .setAutoCancel(false)
+                .setContentIntent(pendingIntent)
                 .setDefaults(NotificationCompat.DEFAULT_SOUND | NotificationCompat.DEFAULT_VIBRATE);
         NotificationManager notificationManager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, notificationBuilder.build());

@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".BuyerInfoActivity"></activity>
         <activity
             android:name=".NotiListActivity"
             android:label="@string/title_activity_noti_list"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
 
         <service
             android:name=".NotiReceiver"
