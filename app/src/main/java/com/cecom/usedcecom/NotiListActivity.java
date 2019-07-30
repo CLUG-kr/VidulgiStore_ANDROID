@@ -66,11 +66,8 @@ public class NotiListActivity extends AppCompatActivity {
                     new int[]{ R.id.seller, R.id.item}
             );
             list.setAdapter(adapter);
-
-
         } catch (SQLiteException se) {
-            Toast.makeText(getApplicationContext(),  se.getMessage(), Toast.LENGTH_LONG).show();
-            Log.e("",  se.getMessage());
+            Toast.makeText(getApplicationContext(),  "수신된 알림이 없습니다.", Toast.LENGTH_LONG).show();
         }
 
     }
