@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1001980557318",
+    "firebase_url": "https://vidulgi.firebaseio.com",
+    "project_id": "vidulgi",
+    "storage_bucket": "vidulgi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1001980557318:android:cd3e00a2e01ef161",
+        "android_client_info": {
+          "package_name": "com.cecom.usedcecom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1001980557318-cfr28v4qvb9ifek2de77uk6m4ageapt1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdYlYD5W4K-08B0p7nCr3dgYblGSEnPfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1001980557318-cfr28v4qvb9ifek2de77uk6m4ageapt1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
