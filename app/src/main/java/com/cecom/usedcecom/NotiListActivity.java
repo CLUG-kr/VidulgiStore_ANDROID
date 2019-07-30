@@ -37,22 +37,23 @@ public class NotiListActivity extends AppCompatActivity {
     protected void showList(){
 
         try {
+            HashMap<String,String> header = new HashMap<>();
+            header.put(TAG_SELLER,"구매 희망자");
+            header.put(TAG_ITEM,"구매 희망 물품");
+            personList.add(header);
 
             SQLiteDatabase ReadDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
             Cursor c = ReadDB.rawQuery("SELECT * FROM " + tableName, null);
 
             if (c != null) {
-
-
                 if (c.moveToFirst()) {
                     do {
                         String sellerStr = c.getString(c.getColumnIndex("seller"));
                         String itemStr = c.getString(c.getColumnIndex("item"));
-                        HashMap<String,String> persons = new HashMap<>();
 
+                        HashMap<String,String> persons = new HashMap<>();
                         persons.put(TAG_SELLER,sellerStr);
                         persons.put(TAG_ITEM,itemStr);
-
                         personList.add(persons);
                     } while (c.moveToNext());
                 }

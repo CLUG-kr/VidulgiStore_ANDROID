@@ -25,7 +25,6 @@ public class FirebaseInstanceIDService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String s) {
         super.onNewToken(s);
-        Log.e("Firebase", "FirebaseInstanceIDService : " + s);
     }
 
     @Override
