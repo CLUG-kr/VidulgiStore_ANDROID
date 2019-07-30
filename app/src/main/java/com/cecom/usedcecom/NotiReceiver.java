@@ -13,7 +13,6 @@ import android.os.IBinder;
 import androidx.core.app.NotificationCompat;
 
 import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.FirebaseMessagingService;
 
 public class NotiReceiver extends Service {
     NotificationCompat.Builder notificationBuilder;
