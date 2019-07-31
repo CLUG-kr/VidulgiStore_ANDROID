@@ -19,11 +19,6 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.util.Locale;
 
 public class FirebaseInstanceIDService extends FirebaseMessagingService {
-    private final String dbName = "notifications";
-    private final String tableName = "notireceived";
-
-    SQLiteDatabase sampleDB = null;
-
     @Override
     public void onNewToken(String s) {
         super.onNewToken(s);
@@ -32,15 +27,6 @@ public class FirebaseInstanceIDService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         sendNotification(remoteMessage);
-
-        try {
-            sampleDB = this.openOrCreateDatabase(dbName, MODE_PRIVATE, null);
-            sampleDB.execSQL("CREATE TABLE IF NOT EXISTS " + tableName + " (seller VARCHAR(20), item VARCHAR(20) );");
-            sampleDB.execSQL("INSERT INTO " + tableName + " Values ('" + remoteMessage.getData().get("seller") + "', '" + remoteMessage.getData().get("item") + "');");
-            sampleDB.close();
-        } catch (SQLiteException se) {
-            Log.e("SQL WRITE ERROR", se.getMessage());
-        }
     }
 
     private void sendNotification(RemoteMessage remoteMessage) {
